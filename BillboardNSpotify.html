@@ -1,8 +1,41 @@
 <!DOCTYPE html>
 <html>
+<!-- Theme CSS -->
+<link href="css/freelancer.min.css" rel="stylesheet">
+<link href="css/styles.css" rel="stylesheet">
+<header><title>Block Assessment Survey</title></header>
+
+
 <head><meta charset="utf-8" />
 
 <title>BillboardNSpotify</title>
+
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
+  <div class="container">
+    <a class="navbar-brand js-scroll-trigger" href="#page-top">Noah Griff</a>
+    <button class="navbar-toggler navbar-toggler-right text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      Menu
+      <i class="fas fa-bars"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item mx-0 mx-lg-1">
+          <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="index.html">About Me</a>
+        </li>
+        <li class="nav-item mx-0 mx-lg-1">
+          <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#Analysis">Analysis</a>
+        </li>
+        <li class="nav-item mx-0 mx-lg-1">
+          <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="mobile.html">Mobile App</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
@@ -9129,15 +9162,15 @@ label {
 }
 /* Flexible box model classes */
 /* Taken from Alex Russell http://infrequently.org/2009/08/css-3-progress/ */
-/* This file is a compatability layer.  It allows the usage of flexible box 
+/* This file is a compatability layer.  It allows the usage of flexible box
 model layouts accross multiple browsers, including older browsers.  The newest,
 universal implementation of the flexible box model is used when available (see
-`Modern browsers` comments below).  Browsers that are known to implement this 
+`Modern browsers` comments below).  Browsers that are known to implement this
 new spec completely include:
 
     Firefox 28.0+
     Chrome 29.0+
-    Internet Explorer 11+ 
+    Internet Explorer 11+
     Opera 17.0+
 
 Browsers not listed, including Safari, are supported via the styling under the
@@ -12519,7 +12552,7 @@ div#pager .ui-resizable-handle {
   background: #f7f7f7;
   border-top: 1px solid #cfcfcf;
   border-bottom: 1px solid #cfcfcf;
-  /* This injects handle bars (a short, wide = symbol) for 
+  /* This injects handle bars (a short, wide = symbol) for
         the resize handle. */
 }
 div#pager .ui-resizable-handle::after {
@@ -13018,7 +13051,7 @@ ul.typeahead-list  > li > a.pull-right {
 .highlight .il { color: #666666 } /* Literal.Number.Integer.Long */
     </style>
 <style type="text/css">
-    
+
 /* Temporary definitions which will become obsolete with Notebook release 5.0 */
 .ansi-black-fg { color: #3E424D; }
 .ansi-black-bg { background-color: #3E424D; }
@@ -13072,14 +13105,14 @@ div#notebook {
   div.cell {
     display: block;
     page-break-inside: avoid;
-  } 
-  div.output_wrapper { 
-    display: block;
-    page-break-inside: avoid; 
   }
-  div.output { 
+  div.output_wrapper {
     display: block;
-    page-break-inside: avoid; 
+    page-break-inside: avoid;
+  }
+  div.output {
+    display: block;
+    page-break-inside: avoid;
   }
 }
 </style>
@@ -13110,6 +13143,8 @@ div#notebook {
     </script>
     <!-- End of mathjax configuration --></head>
 <body>
+
+
   <div tabindex="-1" id="notebook" class="border-box-sizing">
     <div class="container" id="notebook-container">
 
@@ -13220,6 +13255,7 @@ Requirement already satisfied: setuptools in /opt/conda/lib/python3.7/site-packa
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<section class = "DataPrep"></section>
 <h2 id="Data-Collection-and-Cleaning">Data Collection and Cleaning<a name="collection" /><a class="anchor-link" href="#Data-Collection-and-Cleaning">&#182;</a></h2><p>The first thing we must do is to obtain the data we wish to analyze. This includes getting the top 100 songs from every year, finding those songs on Spotify, and then obtaining the audio analysis for each song.</p>
 <p>Here, we use urllib.request, and pandas.read_html in order to get the Billboard Hot 100 songs for each year. For each year between 1970 and 2020, we query Wikipedia (Billboard's site had query limits and was missing data from 1992-2006) for the chart and read the HTML table into a pandas DataFrame. We then append that year's list to a larger frame containing every song from each year:</p>
 
@@ -13346,7 +13382,7 @@ memory usage: 257.2+ KB
 <span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">row</span> <span class="ow">in</span> <span class="n">wiki</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
     <span class="c1"># since one of these will be 0, adding them together produces the real rank</span>
     <span class="n">no</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;№&#39;</span><span class="p">]</span>
-    <span class="n">num</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;No.&#39;</span><span class="p">]</span> 
+    <span class="n">num</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;No.&#39;</span><span class="p">]</span>
     <span class="n">rank</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">no</span> <span class="o">+</span> <span class="n">num</span><span class="p">)</span>
 
 <span class="c1"># add the rank column and drop the previous ones</span>
@@ -13617,7 +13653,7 @@ memory usage: 183.6+ KB
 <span class="c1"># go through each search query result</span>
 <span class="k">for</span> <span class="n">result</span> <span class="ow">in</span> <span class="n">results</span><span class="p">:</span>
     <span class="c1"># if the items key doesnt exist, bad data -- drop row and continue to next row</span>
-    <span class="k">if</span> <span class="s1">&#39;items&#39;</span> <span class="ow">in</span> <span class="n">result</span><span class="p">[</span><span class="s1">&#39;tracks&#39;</span><span class="p">]:</span>     
+    <span class="k">if</span> <span class="s1">&#39;items&#39;</span> <span class="ow">in</span> <span class="n">result</span><span class="p">[</span><span class="s1">&#39;tracks&#39;</span><span class="p">]:</span>
         <span class="c1"># if the dictionary length is 0, drop row and continue</span>
         <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">result</span><span class="p">[</span><span class="s1">&#39;tracks&#39;</span><span class="p">][</span><span class="s1">&#39;items&#39;</span><span class="p">])</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
             <span class="c1"># search for audio features of current song. pull the first result </span>
@@ -13629,7 +13665,7 @@ memory usage: 183.6+ KB
     <span class="k">else</span><span class="p">:</span>
         <span class="n">data</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">index</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
         <span class="k">continue</span>
-        
+
     <span class="n">index</span> <span class="o">+=</span> <span class="mi">1</span>
 </pre></div>
 
@@ -13683,10 +13719,10 @@ retrying ...1secs
 <span class="n">speechiness</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="n">acousticness</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="n">instrumentalness</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="n">liveness</span> <span class="o">=</span> <span class="p">[]</span> 
-<span class="n">valence</span> <span class="o">=</span> <span class="p">[]</span> 
-<span class="n">tempo</span> <span class="o">=</span> <span class="p">[]</span> 
-<span class="n">type_feature</span> <span class="o">=</span> <span class="p">[]</span> 
+<span class="n">liveness</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">valence</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">tempo</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">type_feature</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="n">song_id</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="n">uri</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="n">track_href</span> <span class="o">=</span> <span class="p">[]</span>
@@ -13722,7 +13758,7 @@ retrying ...1secs
         <span class="n">track_href</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">analysis</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;track_href&#39;</span><span class="p">])</span>
         <span class="n">analysis_url</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">analysis</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;analysis_url&#39;</span><span class="p">])</span>
         <span class="n">duration_ms</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">analysis</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;duration_ms&#39;</span><span class="p">])</span>
-        <span class="n">time_signature</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">analysis</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;time_signature&#39;</span><span class="p">])</span>  
+        <span class="n">time_signature</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">analysis</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;time_signature&#39;</span><span class="p">])</span>
     <span class="n">index</span> <span class="o">+=</span> <span class="mi">1</span>
 
 <span class="c1"># add all the new columns to the dataframe</span>
@@ -13952,6 +13988,7 @@ retrying ...1secs
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Great! We are now done with the collection and cleaning of our data. We can now use our data in analysis without having to worry about inconsistencies or nonexistent values.</p>
+<section class = "analysis"></section>
 <h2 id="Analysis">Analysis<a name="analysis" /><a class="anchor-link" href="#Analysis">&#182;</a></h2><p>To check for any correlation between year/rank and audio features, we plotted a regression model for several features for every song.</p>
 <p>Here, we plot year and song length. As you can see, it very hard to get any relation out of this visualization.</p>
 
@@ -15522,7 +15559,7 @@ Here, we get all of the artists with 10 or more top 100 songs.</p>
     <span class="k">for</span> <span class="n">cgen</span> <span class="ow">in</span> <span class="n">curGen</span><span class="p">:</span>
         <span class="k">for</span> <span class="n">gen</span> <span class="ow">in</span> <span class="n">cgen</span><span class="p">:</span>
             <span class="n">topGen</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">gen</span><span class="p">)</span>
-        
+
 <span class="n">unique_string</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">topGen</span><span class="p">)</span>
 <span class="n">wordcloud</span> <span class="o">=</span> <span class="n">WordCloud</span><span class="p">(</span><span class="n">width</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">,</span> <span class="n">height</span> <span class="o">=</span> <span class="mi">500</span><span class="p">)</span><span class="o">.</span><span class="n">generate</span><span class="p">(</span><span class="n">unique_string</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
@@ -15579,7 +15616,7 @@ Here, we get all of the artists with 10 or more top 100 songs.</p>
     <span class="n">curArt</span> <span class="o">=</span> <span class="n">i</span>
     <span class="k">for</span> <span class="n">j</span><span class="p">,</span><span class="n">s</span> <span class="ow">in</span> <span class="n">data</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
         <span class="k">if</span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="s1">&#39;artist&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">curArt</span><span class="p">):</span>
-            <span class="n">topSongs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>    
+            <span class="n">topSongs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -16586,7 +16623,7 @@ Madonna has 35 songs in the top 100, the next highest being Elton John with 26. 
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">byArtist</span><span class="p">[</span><span class="s1">&#39;numSongs&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">topArt</span><span class="p">[</span><span class="s1">&#39;Num_Songs&#39;</span><span class="p">]</span>
 
-<span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">byArtist</span><span class="p">[</span><span class="s1">&#39;year&#39;</span><span class="p">],</span><span class="n">byArtist</span><span class="p">[</span><span class="s1">&#39;numSongs&#39;</span><span class="p">])</span> 
+<span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">byArtist</span><span class="p">[</span><span class="s1">&#39;year&#39;</span><span class="p">],</span><span class="n">byArtist</span><span class="p">[</span><span class="s1">&#39;numSongs&#39;</span><span class="p">])</span>
 </pre></div>
 
     </div>
@@ -16717,7 +16754,7 @@ Madonna has 35 songs in the top 100, the next highest being Elton John with 26. 
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span> 
+<div class=" highlight hl-ipython3"><pre><span></span>
 </pre></div>
 
     </div>
@@ -16729,7 +16766,7 @@ Madonna has 35 songs in the top 100, the next highest being Elton John with 26. 
   </div>
 </body>
 
- 
+
 
 
 </html>
